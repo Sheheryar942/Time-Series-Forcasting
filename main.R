@@ -1,0 +1,6 @@
+library(forecast)
+data <- read.csv("data.csv")
+ts <- ts(data$sales, frequency=12)
+model <- auto.arima(ts)
+forecast <- forecast(model, h=12)
+plot(forecast)
